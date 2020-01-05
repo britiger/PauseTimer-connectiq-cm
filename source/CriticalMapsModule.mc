@@ -1,3 +1,4 @@
+using Toybox.Application;
 using Toybox.System;
 using Toybox.Position;
 using Toybox.Time;
@@ -23,8 +24,20 @@ class CriticalMapsAPI {
     static var chatText = "";
     
     static function getDeviceId() {
-        var mySettings = System.getDeviceSettings();
-        return mySettings.uniqueIdentifier;
+        var propDeviceId =  Application.Properties.getValue("deviceId");
+        if (propDeviceId.equals("")) {
+            // need initalisation
+            // call in non-background for inital set value
+            // setValue is not possible in background
+            var mySettings = System.getDeviceSettings();
+            propDeviceId = mySettings.uniqueIdentifier;
+            try {
+            	Application.Properties.setValue("deviceId", propDeviceId);
+            } catch (e instanceof Application.ObjectStoreAccessException) {
+            	System.println("Need to set device Id in app or view.");
+            }
+        }
+        return propDeviceId;
     }
     
     static function sendPositionData(callbackMethod) {
@@ -40,7 +53,7 @@ class CriticalMapsAPI {
         System.println("Longitude: " + myLocation[1]); 
         System.println("Accu: " + positionInfo.accuracy);    
 
-        if (myLocation[0] >= 179){
+        if (myLocation[0] >= 179 || (myLocation[0] == 0 && myLocation[1] == 0)){
             return -2;
         }
         var location =  {

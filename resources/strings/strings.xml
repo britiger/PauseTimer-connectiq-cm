@@ -1,4 +1,6 @@
 <strings>
     <string id="AppName">Paused Timer (CM)</string>
     <string id="field_label">Paused Timer</string>
+    
+    <string id="deviceIdTitle">Device Id</string>
 </strings>
