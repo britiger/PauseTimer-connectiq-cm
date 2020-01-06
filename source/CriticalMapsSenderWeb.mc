@@ -5,6 +5,8 @@ using Toybox.Time;
 using Toybox.Communications;
 using Toybox.Math;
 
+using CriticalMapsAPIBarrel as CM;
+
 (:background)
 class CriticalMapsSenderWeb extends Toybox.System.ServiceDelegate {	
 
@@ -18,11 +20,11 @@ class CriticalMapsSenderWeb extends Toybox.System.ServiceDelegate {
 
     function sendPositionData() {	
         var callback = method(:callbackCM);
-        return CriticalMapsAPI.sendPositionData(callback);
+        return CM.sendPositionData(callback);
     }
 
     function callbackCM(responseCode, data) {
-        var result = CriticalMapsAPI.callbackCM(responseCode, data);
+        var result = CM.callbackCM(responseCode, data);
         Background.exit(result);
     }
 }

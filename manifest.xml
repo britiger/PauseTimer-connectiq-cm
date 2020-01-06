@@ -17,6 +17,8 @@
             <iq:language>deu</iq:language>
             <iq:language>eng</iq:language>
         </iq:languages>
-        <iq:barrels/>
+        <iq:barrels>
+            <iq:depends name="CriticalMapsAPIBarrel" version="0.1.0"/>
+        </iq:barrels>
     </iq:application>
 </iq:manifest>

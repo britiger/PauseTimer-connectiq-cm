@@ -2,6 +2,8 @@ using Toybox.Application;
 using Toybox.Background;
 using Toybox.System;
 
+using CriticalMapsAPIBarrel as CM;
+
 class PauseTimerApp extends Application.AppBase {
 
     function initialize() {
@@ -18,7 +20,7 @@ class PauseTimerApp extends Application.AppBase {
 
     // Return the initial view of your application here
     function getInitialView() {
-        CriticalMapsAPI.getDeviceId(); // Need to be intial set DeviceId with app+device uuid, not possible in background
+        CM.getDeviceId(); // Need to be intial set DeviceId with app+device uuid, not possible in background
         if(Toybox.System has :ServiceDelegate) {
             Background.registerForTemporalEvent(new Time.Duration(5 * 60));
         } else {
