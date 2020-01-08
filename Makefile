@@ -29,19 +29,20 @@ buildall:
 	rm ./build.jungle
 
 run: build
-	@$(SDK_HOME)/bin/connectiq &&\
-	sleep 3 &&\
-	$(JAVA_OPTIONS) \
+	$(SDK_HOME)/bin/connectiq &
+	sleep 3 
 	$(SDK_HOME)/bin/monkeydo bin/$(appName).prg $(DEVICE)
 
 deploy: build
 	@cp bin/$(appName).prg $(DEPLOY)
 
 package:
+	cat ./monkey.jungle ./barrels.jungle > ./build.jungle
 	@$(SDK_HOME)/bin/monkeyc \
-	--jungles ./monkey.jungle \
+	--jungles ./build.jungle \
 	--package-app \
 	--release \
 	--output bin/$(appName).iq \
 	--private-key $(PRIVATE_KEY) \
 	--warn
+	rm ./build.jungle
