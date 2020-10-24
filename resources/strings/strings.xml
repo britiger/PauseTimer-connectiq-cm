@@ -3,4 +3,5 @@
     <string id="field_label">Paused Timer</string>
     
     <string id="deviceIdTitle">Device Id</string>
+    <string id="traccarURLTitle">Traccar URL</string>
 </strings>

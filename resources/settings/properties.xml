@@ -1,3 +1,4 @@
 <properties>
     <property id="deviceId" type="string"></property>
+    <property id="traccarURL" type="string"></property>
 </properties>

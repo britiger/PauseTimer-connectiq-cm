@@ -2,5 +2,6 @@
 # on the project and select "Configure Monkey Barrels".
 
 CriticalMapsAPIBarrel = ../CriticalMapsAPIBarrel/bin/CriticalMapsAPIBarrel.barrel
-base.barrelPath = $(base.barrelPath);$(CriticalMapsAPIBarrel)
+TraccarAPIBarrel = ../TraccarAPIBarrel/bin/TraccarAPIBarrel.barrel
+base.barrelPath = $(base.barrelPath);$(CriticalMapsAPIBarrel);$(TraccarAPIBarrel)
 
