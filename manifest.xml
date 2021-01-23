@@ -3,6 +3,7 @@
         <iq:products>
             <iq:product id="edge1030"/>
             <iq:product id="edge1030bontrager"/>
+            <iq:product id="edge1030plus"/>
             <iq:product id="edge820"/>
             <iq:product id="edge830"/>
             <iq:product id="edge_1000"/>
@@ -19,7 +20,7 @@
         </iq:languages>
         <iq:barrels>
             <iq:depends name="CriticalMapsAPIBarrel" version="0.3.1"/>
-            <iq:depends name="TraccarAPIBarrel" version="0.1.0"/>
+            <iq:depends name="TraccarAPIBarrel" version="0.2.0"/>
         </iq:barrels>
     </iq:application>
 </iq:manifest>
