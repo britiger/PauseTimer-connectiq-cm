@@ -5,7 +5,7 @@ devices = `grep 'iq:product id' manifest.xml | sed 's/.*iq:product id="\([^"]*\)
 JAVA_OPTIONS = JDK_JAVA_OPTIONS="--add-modules=java.xml.bind"
 
 build:
-	rm -f bin/*
+	rm -rf bin/*
 	cat ./monkey.jungle ./barrels.jungle > ./build.jungle &&\
 	$(SDK_HOME)/bin/monkeyc \
 	--jungles ./build.jungle \
